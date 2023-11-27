@@ -14,16 +14,16 @@ face recognition system using PyTorch and the facenet_pytorch library. Here's an
 * PIL.Image: Library for image handling.
 
 ### Loading Pre-trained Models and Data
-data=torch.load('data.pt',map_location=torch.device('cpu')): Loads previously saved face encodings and associated names.
-faces, names = data[0], data[1]: Extracts face encodings and names from the loaded data.
-mtcnn = MTCNN(): Initializes an MTCNN (Multi-Task Cascaded Convolutional Networks) for face detection.
-res = InceptionResnetV1(pretrained='vggface2').eval(): Initializes a pre-trained InceptionResnetV1 model for face recognition using the VGGFace2 dataset.
-res = torch.load("flayer_model.pt", map_location=torch.device('cpu')): Loads a previously trained face recognition model.
+* data=torch.load('data.pt',map_location=torch.device('cpu')): Loads previously saved face encodings and associated names.
+* faces, names = data[0], data[1]: Extracts face encodings and names from the loaded data.
+* mtcnn = MTCNN(): Initializes an MTCNN (Multi-Task Cascaded Convolutional Networks) for face detection.
+* res = InceptionResnetV1(pretrained='vggface2').eval(): Initializes a pre-trained InceptionResnetV1 model for face recognition using the VGGFace2 dataset.
+* res = torch.load("flayer_model.pt", map_location=torch.device('cpu')): Loads a previously trained face recognition model.
 
 ## Facerec Class
 ### Initialization:
-known_face_encodings, known_face_names: Lists storing known face encodings and their associated names.
-frame_resizing: Scale factor for resizing frames.
+* known_face_encodings, known_face_names: Lists storing known face encodings and their associated names.
+* frame_resizing: Scale factor for resizing frames.
 
 ### load_encoding_images Method:
 Loads images from the specified path and processes each image for face detection and encoding.
@@ -43,24 +43,24 @@ The code seems to manage face detection, encoding, and recognition using pre-tra
 implementation of face recognition in a video using the Facerec class previously defined. 
 
 ### Libraries Imported:
-cv2, os, glob, numpy, time, torch: Libraries for various operations like image processing, file handling, array manipulation, timing, and PyTorch functionalities.
-Facerec: Custom class, presumably containing face recognition methods.
+* cv2, os, glob, numpy, time, torch: Libraries for various operations like image processing, file handling, array manipulation, timing, and PyTorch functionalities.
+* Facerec: Custom class, presumably containing face recognition methods.
 MTCNN, InceptionResnetV1 from facenet_pytorch: Modules for face detection and recognition.
 
 ### Initialization:
-fr = Facerec(): Instantiates an object of the Facerec class for face recognition operations.
-path = "data": Defines a path where data (presumably images and encodings) is stored.
-vid = cv2.VideoCapture("C:\\Users\\nchakri\\Downloads\\test1.mp4"): Opens a video file for processing.
+*fr = Facerec(): Instantiates an object of the Facerec class for face recognition operations.
+* path = "data": Defines a path where data (presumably images and encodings) is stored.
+* vid = cv2.VideoCapture("C:\\Users\\nchakri\\Downloads\\test1.mp4"): Opens a video file for processing.
 
 ### Face Recognition Loop:
-mtcnn = MTCNN(): Initializes an MTCNN object for face detection.
-flag = -1: Initializes a flag used for timing purposes.
-t = time.time(): Records the start time for frame processing.
+* mtcnn = MTCNN(): Initializes an MTCNN object for face detection.
+* flag = -1: Initializes a flag used for timing purposes.
+* t = time.time(): Records the start time for frame processing.
 
 ### Frame Processing Loop:
 Enters a continuous loop for processing frames from the video.
-_, img = vid.read(): Reads a frame from the video.
-boxs = mtcnn.detect(img): Detects faces in the frame using MTCNN.
+* _, img = vid.read(): Reads a frame from the video.
+* boxs = mtcnn.detect(img): Detects faces in the frame using MTCNN.
 Checks if it's been more than 2 seconds (time.time() - t > 2) and flag is -1. If so, tries to detect known faces in the frame (fr.detect_known_faces(img)).
 
 ### Face Recognition and Visualization
@@ -77,8 +77,8 @@ The real-time face recognition on a video stream, recognizing known faces and di
 This code creates a nested list containing two empty lists. Then it uses PyTorch's torch.save() function to save this list into a file named "data.pt" in a serialized format.
 
 ### Breaking it down:
-a = [[], []]: Initializes a list a containing two empty lists as its elements. It's a nested list structure with two empty lists inside the outer list.
-torch.save(a, "data.pt"): Saves the list a into a file named "data.pt" using PyTorch's torch.save() function. This function serializes the object a (in this case, the nested list) and saves it into the specified file path ("data.pt").
+* a = [[], []]: Initializes a list a containing two empty lists as its elements. It's a nested list structure with two empty lists inside the outer list.
+* torch.save(a, "data.pt"): Saves the list a into a file named "data.pt" using PyTorch's torch.save() function. This function serializes the object a (in this case, the nested list) and saves it into the specified file path ("data.pt").
 
 After running this code, the file "data.pt" will contain the serialized representation of the nested list a. This serialization allows you to save Python objects, such as lists, tensors, or models, into files so that they can be loaded and used later without losing their structure or content.
 
@@ -90,8 +90,8 @@ This script appears to create a Siamese neural network for face recognition usin
 The script imports necessary libraries including PyTorch, torchvision, OpenCV (cv2), numpy, PIL, and modules/classes from facenet_pytorch.
 
 ### Preparing Pre-trained Models
-Initializes MTCNN and loads a pre-trained InceptionResnetV1 model (model=InceptionResnetV1(pretrained='vggface2').eval()).
-Sets the requires_grad property for specific layers in the model to enable gradient computation (for i in model.last_linear.parameters(): i.requires_grad = True, etc.).
+* Initializes MTCNN and loads a pre-trained InceptionResnetV1 model (model=InceptionResnetV1(pretrained='vggface2').eval()).
+* Sets the requires_grad property for specific layers in the model to enable gradient computation (for i in model.last_linear.parameters(): i.requires_grad = True, etc.).
 
 ### Dataset Preparation
 Defines a SiameseNetworkDataset class inheriting from Dataset, used to prepare image pairs for the Siamese network.
@@ -127,11 +127,11 @@ This snippet of code is intended to perform some facial recognition tasks using 
 cv2, os, glob, numpy, time: Libraries for various operations like image processing, file handling, array manipulation, and timing.
 
 ### Loading Paths
-path = 'data': Sets the variable path to the directory named 'data'.
-dir_paths = os.listdir(path): Retrieves a list of all files and directories in the 'data' directory.
+* path = 'data': Sets the variable path to the directory named 'data'.
+* dir_paths = os.listdir(path): Retrieves a list of all files and directories in the 'data' directory.
 
 ### Initializing Facerec Class and Encoding Images
-fr = Facerec(): Initializes an instance of the Facerec class, presumably containing methods related to facial recognition tasks.
-fr.load_encoding_images(path): Invokes the load_encoding_images() method from the Facerec class to load and encode images located in the 'data' directory.
+* fr = Facerec(): Initializes an instance of the Facerec class, presumably containing methods related to facial recognition tasks.
+* fr.load_encoding_images(path): Invokes the load_encoding_images() method from the Facerec class to load and encode images located in the 'data' directory.
 
 This code snippet, in essence, intends to utilize the Facerec class to load images from a specific directory ('data') and perform facial encoding or recognition tasks. The load_encoding_images() method within the Facerec class is likely responsible for loading images, detecting faces, and encoding them for later recognition purposes.
