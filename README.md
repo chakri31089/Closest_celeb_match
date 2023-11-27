@@ -7,11 +7,11 @@ Real time face encoding matching with celeb dataset.
 face recognition system using PyTorch and the facenet_pytorch library. Here's an explanation of the code:
 
 ### Libraries Imported
-facenet_pytorch: Library for face detection and recognition.
-torch, torchvision: PyTorch libraries for machine learning.
-cv2: OpenCV library for computer vision.
-os, glob, numpy: Standard Python libraries for file operations and array manipulation.
-PIL.Image: Library for image handling.
+* facenet_pytorch: Library for face detection and recognition.
+* torch, torchvision: PyTorch libraries for machine learning.
+* cv2: OpenCV library for computer vision.
+* os, glob, numpy: Standard Python libraries for file operations and array manipulation.
+* PIL.Image: Library for image handling.
 
 ### Loading Pre-trained Models and Data
 data=torch.load('data.pt',map_location=torch.device('cpu')): Loads previously saved face encodings and associated names.
