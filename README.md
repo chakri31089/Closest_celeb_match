@@ -97,25 +97,25 @@ The script imports necessary libraries including PyTorch, torchvision, OpenCV (c
 * Sets the requires_grad property for specific layers in the model to enable gradient computation (for i in model.last_linear.parameters(): i.requires_grad = True, etc.).
 
 ### Dataset Preparation
-Defines a SiameseNetworkDataset class inheriting from Dataset, used to prepare image pairs for the Siamese network.
-Defines transformations (transform) including resizing and converting images to tensors.
+* Defines a SiameseNetworkDataset class inheriting from Dataset, used to prepare image pairs for the Siamese network.
+* Defines transformations (transform) including resizing and converting images to tensors.
 
 ### Loading Image Data
-Uses torchvision.datasets.ImageFolder to load images from a specified directory.
-Creates a SiameseNetworkDataset object (sdata) using the loaded image data.
+* Uses torchvision.datasets.ImageFolder to load images from a specified directory.
+* Creates a SiameseNetworkDataset object (sdata) using the loaded image data.
 
 ### Data Loader
-Uses DataLoader to create a data loader (data_loader) for the prepared SiameseNetworkDataset.
-Iterates through the data loader and visualizes sample image pairs using matplotlib.
+* Uses DataLoader to create a data loader (data_loader) for the prepared SiameseNetworkDataset.
+* Iterates through the data loader and visualizes sample image pairs using matplotlib.
 
 ### Contrastive Loss and Optimization
-Defines a ContrastiveLoss class inheriting from torch.nn.Module to compute the contrastive loss between pairs of embeddings.
-Sets up an Adam optimizer and initializes variables for storing loss history (counter, loss_history).
+* Defines a ContrastiveLoss class inheriting from torch.nn.Module to compute the contrastive loss between pairs of embeddings.
+* Sets up an Adam optimizer and initializes variables for storing loss history (counter, loss_history).
 
 ### Training Loop
-Runs a training loop over 10 epochs.
-Inside the loop, iterates through the data loader batches and performs forward pass, loss computation, and backward propagation.
-Updates the network's parameters using the optimizer and records loss values.
+* Runs a training loop over 10 epochs.
+* Inside the loop, iterates through the data loader batches and performs forward pass, loss computation, and backward propagation.
+* Updates the network's parameters using the optimizer and records loss values.
 
 ### Model Saving
 Finally, saves the trained Siamese network (net) as "flayer_model.pt" using torch.save().
@@ -124,10 +124,11 @@ This code trains a Siamese network using face image pairs, optimizing it to mini
 
 
 ## 5.encoding.ipynb
-This snippet of code is intended to perform some facial recognition tasks using the Facerec class from a file/module named Facerec.py. Let me break down what each part of this code is likely doing:
+* This snippet of code is intended to perform some facial recognition tasks using the Facerec class from a file/module named Facerec.py.
+* Let me break down what each part of this code is likely doing:
 
 ### Importing Libraries
-cv2, os, glob, numpy, time: Libraries for various operations like image processing, file handling, array manipulation, and timing.
+* cv2, os, glob, numpy, time: Libraries for various operations like image processing, file handling, array manipulation, and timing.
 
 ### Loading Paths
 * path = 'data': Sets the variable path to the directory named 'data'.
