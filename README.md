@@ -50,7 +50,7 @@ MTCNN, InceptionResnetV1 from facenet_pytorch: Modules for face detection and re
 ### Initialization:
 fr = Facerec(): Instantiates an object of the Facerec class for face recognition operations.
 path = "data": Defines a path where data (presumably images and encodings) is stored.
-vid = cv2.VideoCapture("C:\\Users\\kashy\\Downloads\\test1.mp4"): Opens a video file for processing.
+vid = cv2.VideoCapture("C:\\Users\\nchakri\\Downloads\\test1.mp4"): Opens a video file for processing.
 
 ### Face Recognition Loop:
 mtcnn = MTCNN(): Initializes an MTCNN object for face detection.
